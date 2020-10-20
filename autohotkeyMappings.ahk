@@ -47,6 +47,18 @@ Return
 AppsKey::Return
 AppsKey & r::^r
 AppsKey & Space::Send ^{Space}
+AppsKey & Tab:: Send ^{Tab}
+AppsKey & c::^c
+AppsKey & Left::Send !{Left}
+AppsKey & Right::Send !{Right}
+; - Need to fix this - currently !{Backspace} is defined above and removes the whole word
+AppsKey & Backspace::Send !{Backspace}
+AppsKey & Delete::Send !{Delete}
+
+;+AppsKey Left::Send !+{Left}
+;+AppsKey{Right}::Send !+{Right}
+
+
 AppsKey & `::Send #0
 AppsKey & 1::Send #1
 AppsKey & 2::Send #2
