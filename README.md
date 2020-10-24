@@ -13,4 +13,3 @@ Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManage
 
 # Some manual installation
 - Windows Terminal from the store
-- Microsoft Teams
