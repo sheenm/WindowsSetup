@@ -13,9 +13,6 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
 ;------------------------------------------------------------Alt (now ctrl - like cmd)
 LCtrl & Tab:: AltTab
-!Tab:: Send ^{Tab}
-!+Tab:: Send ^+{Tab}
-
 ; ^Space:: Send #{Esc}
 
 ^Left::Send {Home}
@@ -32,6 +29,8 @@ LCtrl & Tab:: AltTab
     Send +{Home}
     Send {Backspace}
 Return
+
+^+5::Send #+{S} ; - Screenshot cmd shift 5
 ;----------------------------------------------------------- WinKey (now Alt)
 !Left::Send ^{Left}
 !Right::Send ^{Right}
@@ -47,8 +46,17 @@ Return
 AppsKey::Return
 AppsKey & r::^r
 AppsKey & Space::Send ^{Space}
-AppsKey & Tab:: Send ^{Tab}
+
+; Almost simulates ctrl+tab
+AppsKey & Tab::
+    Send, {Ctrl Down}{Tab}
+    KeyWait AppsKey
+	Send {Ctrl Up}
+Return
+
+
 AppsKey & c::^c
+AppsKey & g::^g
 AppsKey & Left::Send !{Left}
 AppsKey & Right::Send !{Right}
 ; - Need to fix this - currently !{Backspace} is defined above and removes the whole word
